@@ -4,11 +4,13 @@ import { CredentialsType } from "types";
 const createShortURL = async (credentials: CredentialsType) => {
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/url`;
 
-  return fetcher({
-    method: "POST",
-    url,
-    credentials,
-  });
+  try {
+    const result = fetcher({ method: "POST", url, credentials });
+    return [result, null];
+  } catch (error) {
+    console.error("createShortURL: ", error);
+    return [null, error];
+  }
 };
 
 export default createShortURL;
