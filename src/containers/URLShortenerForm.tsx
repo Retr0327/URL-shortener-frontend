@@ -1,8 +1,8 @@
 import * as Yup from "yup";
 import { FormValueType } from "types";
 import { Formik, Form, FormikHelpers } from "formik";
+import { URLTable, FormikController } from "@components/index";
 import { Title, Grid, Center, Group, Button } from "@mantine/core";
-import FormikController from "@components/FormikController/FormikController";
 
 function URLShortenerForm() {
   const initialValues: FormValueType = {
