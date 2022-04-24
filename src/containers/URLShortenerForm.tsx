@@ -2,6 +2,7 @@ import * as Yup from "yup";
 import { FormValueType } from "types";
 import { Title, Grid, Center } from "@mantine/core";
 import { Formik, Form, FormikHelpers } from "formik";
+import FormikController from "@components/FormikController/FormikController";
 
 function URLShortenerForm() {
   const initialValues: FormValueType = {
@@ -32,6 +33,14 @@ function URLShortenerForm() {
               <Title order={1} align="center">
                 URL Shortener
               </Title>
+            </Grid.Col>
+
+            <Grid.Col xs={12} sm={12} md={12}>
+              <FormikController
+                control="text-input"
+                label="Target URL"
+                name="url"
+              />
             </Grid.Col>
           </Grid>
         </Form>
