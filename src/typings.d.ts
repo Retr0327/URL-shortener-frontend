@@ -13,3 +13,13 @@ export type ControlledProps = {
 
 export type ControllerProps = ControlledProps &
   ({ control: "text-input" } & TextInputProps);
+
+export type HTTPMethod =
+  | "get"
+  | "GET"
+  | "delete"
+  | "DELETE"
+  | "post"
+  | "POST"
+  | "put"
+  | "PUT";
