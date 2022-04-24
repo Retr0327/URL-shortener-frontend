@@ -1,7 +1,7 @@
-import React from "react";
+import URLShortenerForm from "./URLShortenerForm";
 
 function URLShortener() {
-  return <div>urlShortener</div>;
+  return <URLShortenerForm />;
 }
 
 export default URLShortener;
