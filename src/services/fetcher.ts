@@ -1,18 +1,18 @@
-import axios, { AxiosRequestConfig, Method } from "axios";
+import { CustomFetchType } from "types";
 
-const fetcher =
-  (method: Method, credentials: { [key: string]: any }) => (url: string) => {
-    const config: AxiosRequestConfig = {
-      url,
-      method,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      data: method !== "GET" ? credentials : null,
-    };
+async function fetcher({ method, url, credentials }: CustomFetchType) {
+  const _credentials = credentials ?? {};
+  const _method = method.toUpperCase();
 
-    return axios(config).then((res) => res.data);
-  };
+  return fetch(url, {
+    credentials: "include",
+    method: _method,
+    body: _method !== "GET" ? JSON.stringify(_credentials) : null,
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+}
 
 export default fetcher;
