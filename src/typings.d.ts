@@ -33,3 +33,7 @@ export type CustomFetchType = {
   url: string;
   credentials?: CredentialsType;
 };
+
+export type URLShortenerPropsType = {
+  allURLs: { [keys: string]: any }[];
+};
