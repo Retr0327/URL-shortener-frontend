@@ -20,7 +20,7 @@ function URLShortenerForm() {
     actions: FormikHelpers<FormValueType>
   ) => {
     const { url } = values;
-    const expireDate = getExpireDate(8);
+    const expireDate = getExpireDate(1);
 
     const [result, error] = await createShortURL({ url, expireDate });
 
@@ -29,10 +29,9 @@ function URLShortenerForm() {
     }
 
     if (result.status === "success") {
-      const { id, shortURL } = result;
+      window.location.reload();
+      actions.setSubmitting(false);
     }
-
-    actions.setSubmitting(false);
   };
 
   return (
