@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 import { FormValueType } from "types";
-import { createShortURL } from "src/services";
+import { createShortURLService } from "src/services";
 import getExpireDate from "./helper/getExpireDate";
 import { Title, Grid, Button } from "@mantine/core";
 import { Formik, Form, FormikHelpers } from "formik";
@@ -21,9 +21,11 @@ function URLShortenerForm() {
   ) => {
     const { url } = values;
     const expireDate = getExpireDate(8);
-    const result = await createShortURL({ url, expireDate });
+
+    const result = await createShortURLService({ url, expireDate });
 
     console.log(result);
+    actions.setSubmitting(false);
   };
 
   return (

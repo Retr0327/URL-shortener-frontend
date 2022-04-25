@@ -1,3 +1,3 @@
-import createShortURL from "./createShortURL";
+import createShortURLService from "./createShortURLService";
 
-export { createShortURL };
+export { createShortURLService };
