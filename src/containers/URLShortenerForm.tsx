@@ -3,7 +3,7 @@ import { FormValueType } from "types";
 import getExpireDate from "./helper/getExpireDate";
 import { Title, Grid, Button } from "@mantine/core";
 import { Formik, Form, FormikHelpers } from "formik";
-import { createShortURLService } from "src/services";
+import { createShortURL } from "src/services";
 import { URLTable, FormikController } from "@components/index";
 
 function URLShortenerForm() {
@@ -22,7 +22,7 @@ function URLShortenerForm() {
     const { url } = values;
     const expireDate = getExpireDate(8);
 
-    const [result, error] = await createShortURLService({ url, expireDate });
+    const [result, error] = await createShortURL({ url, expireDate });
 
     if (error) {
       return alert("Oops! Something went wrong!");

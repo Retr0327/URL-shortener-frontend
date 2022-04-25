@@ -1,6 +1,7 @@
 import fetcher from "./fetcher";
+import { CredentialsType } from "types";
 
-const createShortURLService = async (credentials: any) => {
+const createShortURL = async (credentials: CredentialsType) => {
   const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/url`;
 
   try {
@@ -12,4 +13,4 @@ const createShortURLService = async (credentials: any) => {
   }
 };
 
-export default createShortURLService;
+export default createShortURL;
