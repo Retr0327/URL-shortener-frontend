@@ -1,4 +1,4 @@
-import { Table, Button } from "@mantine/core";
+import { Table, Button, Text } from "@mantine/core";
 import { URLShortenerPropsType, URLDataType } from "types";
 
 function convertBirthDate(birthDate: string) {
@@ -17,11 +17,15 @@ function URLTable({ allURLs }: URLShortenerPropsType) {
   if (hasURL) {
     urlRows = allURLs.map((value: URLDataType) => (
       <tr key={value.id}>
-        <td width="30%">{value.short_url}</td>
+        <td width="30%">
+          <Text variant="link" component="a" href={value.full_url}>
+            {value.short_url}
+          </Text>
+        </td>
         <td width="30%">{value.full_url}</td>
-        <td width="20%">click</td>
+        <td width="15%">click</td>
         <td width="25%">{convertBirthDate(value.expire!)}</td>
-        <td width="25%">
+        <td width="30%">
           <Button color="red">刪除</Button>
         </td>
       </tr>
