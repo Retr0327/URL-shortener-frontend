@@ -1,6 +1,7 @@
+import { URLShortenerPropsType } from "types";
 import URLShortenerForm from "./URLShortenerForm";
 
-function URLShortener() {
+function URLShortener({ allURLs }: URLShortenerPropsType) {
   return <URLShortenerForm />;
 }
 
