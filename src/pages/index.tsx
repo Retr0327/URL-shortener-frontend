@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { Container } from "@mantine/core";
-import URLShortener from "@containers/urlShortener";
+import { GetServerSideProps } from "next";
+import URLShortener from "@containers/URLShortener";
 
 const Home: NextPage = () => {
   return (
@@ -11,3 +12,9 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {},
+  };
+};
