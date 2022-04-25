@@ -32,5 +32,4 @@ export type CustomFetchType = {
   method: HTTPMethod;
   url: string;
   credentials?: CredentialsType;
-  purpose?: string;
 };
