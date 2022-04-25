@@ -1,3 +1,4 @@
 import createShortURL from "./createShortURL";
+import fetchAllShortURLs from "./fetchAllShortURLs";
 
-export { createShortURL };
+export { createShortURL, fetchAllShortURLs };
