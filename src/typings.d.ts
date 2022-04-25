@@ -34,6 +34,14 @@ export type CustomFetchType = {
   credentials?: CredentialsType;
 };
 
+export type URLDataType = {
+  id?: string;
+  full_url?: string;
+  short_url: string;
+  created_at?: string;
+  expire?: string;
+};
+
 export type URLShortenerPropsType = {
-  allURLs: { [keys: string]: any }[];
+  allURLs: URLDataType[];
 };
