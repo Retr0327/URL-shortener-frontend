@@ -48,7 +48,7 @@ function URLTable({ allURLs }: URLShortenerPropsType) {
           <th>Delete</th>
         </tr>
       </thead>
-      {hasURL && <tbody>{urlRows}</tbody>}
+      {urlRows && <tbody>{urlRows}</tbody>}
     </Table>
   );
 }
