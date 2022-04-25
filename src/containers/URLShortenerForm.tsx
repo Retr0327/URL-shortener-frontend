@@ -28,7 +28,10 @@ function URLShortenerForm() {
       return alert("Oops! Something went wrong!");
     }
 
-    console.log(result);
+    if (result.status === "success") {
+      const { id, shortURL } = result;
+    }
+
     actions.setSubmitting(false);
   };
 
@@ -48,7 +51,7 @@ function URLShortenerForm() {
             </Grid.Col>
 
             <Grid.Col xs={12} sm={12} md={12} lg={10}>
-              <Grid align="end" justify="center">
+              <Grid align="end">
                 <Grid.Col xs={10} sm={10} md={10}>
                   <FormikController
                     control="text-input"
@@ -56,7 +59,7 @@ function URLShortenerForm() {
                     name="url"
                     required={true}
                     size="lg"
-                    description={"Please enter the url"}
+                    description="Please enter the url"
                   />
                 </Grid.Col>
                 <Grid.Col xs={2} sm={2} md={2}>
