@@ -28,9 +28,13 @@ function URLShortenerForm() {
       return alert("Oops! Something went wrong!");
     }
 
+    if (result.message === "Exists") {
+      return actions.setFieldError("url", "URL already exists!");
+    }
+
     if (result.status === "success") {
       window.location.reload();
-      actions.setSubmitting(false);
+      return actions.setSubmitting(false);
     }
   };
 
