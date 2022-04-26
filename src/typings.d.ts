@@ -38,6 +38,7 @@ export type URLDataType = {
   id?: string;
   full_url?: string;
   short_url: string;
+  total_click?: number;
   created_at?: string;
   expire?: string;
 };
