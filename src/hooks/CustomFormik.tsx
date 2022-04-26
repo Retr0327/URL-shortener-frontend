@@ -33,9 +33,7 @@ function useCustomFormik(
         <IconAlertCircle width={18} /> {error}
       </>
     </Box>
-  ) : (
-    <>{"  "}</>
-  );
+  ) : null;
 
   return [formik, hasError];
 }
