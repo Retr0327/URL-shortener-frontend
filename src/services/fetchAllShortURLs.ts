@@ -1,8 +1,7 @@
 import fetcher from "./fetcher";
-import { CredentialsType } from "types";
 
 const fetchAllShortURLs = async () => {
-  const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/all_urls`;
+  const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/url/all`;
 
   try {
     const result = await fetcher({ method: "POST", url });
