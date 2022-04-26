@@ -36,7 +36,8 @@ function URLTable({ allURLs }: URLShortenerPropsType) {
       return alert("Oops! Something went wrong!");
     }
 
-    return window.open(result.url, "_blank", "noopener noreferrer");
+    window.open(result.url, "_blank", "noopener noreferrer");
+    return window.location.reload();
   };
 
   if (hasURL) {
@@ -52,7 +53,7 @@ function URLTable({ allURLs }: URLShortenerPropsType) {
           </Text>
         </td>
         <td width="30%">{value.full_url}</td>
-        <td width="15%">click</td>
+        <td width="15%">{value.total_click}</td>
         <td width="25%">{convertBirthDate(value.expire!)}</td>
         <td width="30%">
           <Button color="red" onClick={handleDeleteClick(value.short_url)}>
