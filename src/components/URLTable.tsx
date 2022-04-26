@@ -1,3 +1,4 @@
+import { deleteShortURL } from "src/services";
 import { Table, Button, Text } from "@mantine/core";
 import { URLShortenerPropsType, URLDataType } from "types";
 
@@ -14,6 +15,18 @@ function URLTable({ allURLs }: URLShortenerPropsType) {
 
   let urlRows;
 
+  const handleOnClick = (shortURL: string) => async () => {
+    const [result, error] = await deleteShortURL({ shortURL });
+
+    const { status } = result;
+
+    if (status !== "success" || error) {
+      return alert("Oops! Something went wrong!");
+    }
+
+    return window.location.reload();
+  };
+
   if (hasURL) {
     urlRows = allURLs.map((value: URLDataType) => (
       <tr key={value.id}>
@@ -26,7 +39,9 @@ function URLTable({ allURLs }: URLShortenerPropsType) {
         <td width="15%">click</td>
         <td width="25%">{convertBirthDate(value.expire!)}</td>
         <td width="30%">
-          <Button color="red">刪除</Button>
+          <Button color="red" onClick={handleOnClick(value.short_url)}>
+            刪除
+          </Button>
         </td>
       </tr>
     ));
