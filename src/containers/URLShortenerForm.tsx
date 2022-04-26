@@ -62,7 +62,7 @@ function URLShortenerForm() {
                   />
                 </Grid.Col>
                 <Grid.Col xs={2} sm={2} md={2}>
-                  <Button type="submit" size="lg">
+                  <Button type="submit" size="lg" mb={formik.errors.url && 5}>
                     Shrink
                   </Button>
                 </Grid.Col>
