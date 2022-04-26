@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+let ignoreDuringBuilds = false;
+
+if (process.env.NODE_ENV === "production") {
+  ignoreDuringBuilds = true;
 }
 
-module.exports = nextConfig
+const nextConfig = {
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds,
+  },
+};
+
+module.exports = nextConfig;
