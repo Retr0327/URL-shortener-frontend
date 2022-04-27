@@ -17,6 +17,6 @@ RUN npm install
 
 COPY --chown=node:node . /app
 
-RUN npm run build
+# RUN npm run build
 
 EXPOSE 3001
