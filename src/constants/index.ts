@@ -1,4 +1,4 @@
-const isProduction: boolean = process.env.NODE_ENV !== "production";
+const isProduction: boolean = process.env.NODE_ENV === "production";
 
 const API: string = !isProduction ? "http://localhost:3000" : "/api";
 
