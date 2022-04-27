@@ -17,9 +17,8 @@ export default Home;
 export const getServerSideProps: GetServerSideProps<
   URLShortenerPropsType
 > = async (context) => {
-  const [result, error] = await fetchAllShortURLs();
-
-  const { status, data } = result;
+  const result = await fetchAllShortURLs();
+  const { status, data } = result[0];
 
   return {
     props: {
