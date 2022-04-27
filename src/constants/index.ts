@@ -4,6 +4,6 @@ const API: string = !isProduction ? "http://localhost:3000" : "/api";
 
 const EXTERNAL_API: string = !isProduction
   ? "http://localhost:3000"
-  : "http://api:3000";
+  : `http://api:${process.env.API_PORT}`;
 
 export { API, EXTERNAL_API };
