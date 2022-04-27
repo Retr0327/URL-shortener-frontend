@@ -1,8 +1,9 @@
 import fetcher from "./fetcher";
+import { API } from "src/constants";
 import { CredentialsType } from "types";
 
 const increaseClick = async (credentials: CredentialsType) => {
-  const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/url/increase`;
+  const url = `${API}/url/increase`;
 
   try {
     const result = await fetcher({ method: "PUT", url, credentials });

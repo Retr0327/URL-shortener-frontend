@@ -1,7 +1,8 @@
 import fetcher from "./fetcher";
+import { EXTERNAL_API } from "src/constants";
 
 const fetchAllShortURLs = async () => {
-  const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/url/all`;
+  const url = `${EXTERNAL_API}/url/all`;
 
   try {
     const result = await fetcher({ method: "POST", url });

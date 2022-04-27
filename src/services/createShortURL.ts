@@ -1,8 +1,9 @@
 import fetcher from "./fetcher";
+import { API } from "src/constants";
 import { CredentialsType } from "types";
 
 const createShortURL = async (credentials: CredentialsType) => {
-  const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/url`;
+  const url = `${API}/url`;
 
   try {
     const result = await fetcher({ method: "POST", url, credentials });

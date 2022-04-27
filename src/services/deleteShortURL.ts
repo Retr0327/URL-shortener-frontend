@@ -1,8 +1,9 @@
 import fetcher from "./fetcher";
+import { API } from "src/constants";
 import { CredentialsType } from "types";
 
 const deleteShortURL = async (credentials: CredentialsType) => {
-  const url = `${process.env.NEXT_PUBLIC_SERVER_URL}/url/delete`;
+  const url = `${API}/url/delete`;
 
   try {
     const result = await fetcher({ method: "POST", url, credentials });
