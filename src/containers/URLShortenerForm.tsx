@@ -22,7 +22,10 @@ function URLShortenerForm() {
     const { url } = values;
     const expireDate = getExpireDate(1);
 
-    const [result, error] = await createShortURL({ url, expireDate });
+    const [result, error] = await createShortURL({
+      url: url.trim(),
+      expireDate,
+    });
 
     if (error) {
       return alert("Oops! Something went wrong!");
