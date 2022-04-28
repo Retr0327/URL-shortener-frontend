@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import { API } from "../constants";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -16,7 +17,7 @@ const fetcher = (url: string, shortURL: string) =>
 
 function ShortURL({ shortURL }: ServerPros) {
   const router = useRouter();
-  const { data, error } = useSWR([`http://localhost:3000`, shortURL], fetcher);
+  const { data, error } = useSWR([API, shortURL], fetcher);
 
   if (!data) {
     return (
