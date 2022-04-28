@@ -36,8 +36,11 @@ function URLTable({ allURLs }: URLShortenerPropsType) {
       return alert("Oops! Something went wrong!");
     }
 
+    if (status === "success" && result.message === "Expired") {
+      return alert("URL expired!");
+    }
+
     window.open(result.url, "_blank", "noopener noreferrer");
-    return window.location.reload();
   };
 
   if (hasURL) {
