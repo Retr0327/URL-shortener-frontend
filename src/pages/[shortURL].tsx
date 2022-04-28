@@ -26,6 +26,11 @@ function ShortURL({ shortURL }: ServerPros) {
     );
   }
 
+  if (data.message === "Expired") {
+    router.push("/");
+    return <></>;
+  }
+
   const { fullURL } = data;
 
   router.push(fullURL);
