@@ -38,4 +38,4 @@ function useCustomFormik(
   return [formik, hasError];
 }
 
-export { useCustomFormik };
+export default useCustomFormik;
