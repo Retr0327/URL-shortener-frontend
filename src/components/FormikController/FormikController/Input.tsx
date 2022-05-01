@@ -1,7 +1,7 @@
 import { ControlledProps } from "types";
 import { TextInput } from "@mantine/core";
 import type { TextInputProps } from "@mantine/core";
-import { useCustomFormik } from "src/hooks/CustomFormik";
+import useCustomFormik from "@hooks/useCustomFormik";
 
 function Input(props: ControlledProps & TextInputProps) {
   const { label, name, description, required, ...rest } = props;
