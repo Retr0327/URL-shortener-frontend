@@ -1,9 +1,10 @@
 # docker-related files
-Dockerfile
+Dockerfile*
 .dockerignore
 
-# dependencies
-/node_modules 
+# node
+node_modules
+dist
 
 # debug
 npm-debug.log*
@@ -17,8 +18,21 @@ yarn-error.log*
 # git
 .git
 
-# readme
+# github
+LICENSE
 README.md
 
 # assest
 /assest
+
+# TypeScript cache
+*.tsbuildinfo
+
+# eslint
+.eslint*
+
+# prettier
+.prettier*
+
+# misc
+.DS_Store
