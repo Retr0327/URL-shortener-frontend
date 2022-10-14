@@ -22,7 +22,8 @@
       "@services/*": ["./src/services/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@config": ["./src/config/index.tsx"],
-      "@context/*": ["./src/context/*"]
+      "@context/*": ["./src/context/*"],
+      "@utils": ["./src/utils/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
