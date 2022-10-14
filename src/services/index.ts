@@ -1,6 +1,3 @@
-import increaseClick from "./increaseClick";
-import createShortURL from "./createShortURL";
-import deleteShortURL from "./deleteShortURL";
-import fetchAllShortURLs from "./fetchAllShortURLs";
+import getAllShortURLs from './get';
 
-export { createShortURL, fetchAllShortURLs, deleteShortURL, increaseClick };
+export { getAllShortURLs };
