@@ -22,6 +22,10 @@ async function request<T>({ url, method, payload, timeout = 5 * 1000 }: Request<
 
   clearTimeout(id);
 
+  if (method === 'DELETE') {
+    return response;
+  }
+
   return response.json();
 }
 
