@@ -37,9 +37,9 @@ export type PickAsOrNull<T, K extends keyof T> = Omit<T, K> & {
 export type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 export type URL = {
-  id?: string;
-  fullUrl?: string;
-  shortUrl: string;
+  id?: number;
+  fullURL?: string;
+  shortURL: string;
   totalClick?: number;
   createdAt?: string;
   expire?: string;
