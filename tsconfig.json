@@ -21,7 +21,7 @@
       "@containers/*": ["./src/containers/*"],
       "@services/*": ["./src/services/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@config": ["./src/config/index.tsx"],
+      "@config": ["./src/config/index.ts"],
       "@context/*": ["./src/context/*"],
       "@utils": ["./src/utils/index.ts"]
     }
