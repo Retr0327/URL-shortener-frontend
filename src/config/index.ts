@@ -1,8 +1,11 @@
-const api = process.env.NEXT_PUBLIC_API_SERVICE;
+const domain = process.env.NEXT_PUBLIC_INTERNAL_SERVER_DOMAIN;
 
-if (!api) {
-  throw new Error('API_SERVICE undefined');
+if (!domain) {
+  throw new Error('NEXT_PUBLIC_INTERNAL_SERVER_DOMAIN undefined');
 }
+
+const isProduction = process.env.NODE_ENV === 'production';
+const api = isProduction ? '/api' : domain;
 
 const url = `${api}/url`;
 
