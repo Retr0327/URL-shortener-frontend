@@ -4,6 +4,8 @@ if (!api) {
   throw new Error('API_SERVICE undefined');
 }
 
-const API = { url: `${api}/url` } as const;
+const url = `${api}/url`;
+
+const API = { url, existence: `${url}/existence` } as const;
 
 export default API;
