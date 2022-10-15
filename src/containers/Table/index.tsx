@@ -30,7 +30,9 @@ function URLTable() {
     }
 
     if (result.msg === 'expired') {
-      return router.push('/');
+      // eslint-disable-next-line no-alert
+      alert('URL expired!');
+      return mutate();
     }
 
     const { url } = result.data;
