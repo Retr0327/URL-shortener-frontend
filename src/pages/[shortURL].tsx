@@ -1,54 +1,42 @@
-import useSWR from "swr";
-import { API } from "../constants";
-import { useRouter } from "next/router";
-import { GetServerSideProps } from "next";
-import { ParsedUrlQuery } from "querystring";
-import { Center, Loader } from "@mantine/core";
+import { URL } from 'types';
+import { useRouter } from 'next/router';
+import { Loader } from '@components/UI';
+import { GetServerSideProps } from 'next';
+import { getShortURL } from '@services/get';
 
-interface ShortURLParams extends ParsedUrlQuery {
-  shortURL: string;
-}
-type ServerPros = {
-  shortURL: string;
-};
+type Props = { shortURL: Pick<URL, 'shortURL'> };
 
-const fetcher = (url: string, shortURL: string) =>
-  fetch(`${url}/${shortURL}`).then((res) => res.json());
-
-function ShortURL({ shortURL }: ServerPros) {
+function ShortURL(props: Props) {
   const router = useRouter();
-  const { data, error } = useSWR([API, shortURL], fetcher);
+  const { shortURL: shortURLParams } = props;
+  const { shortURL, isLoading, isError } = getShortURL(shortURLParams as unknown as string);
 
-  if (!data) {
-    return (
-      <Center mt={50}>
-        <Loader />
-      </Center>
-    );
+  if (isLoading) return <Loader />;
+
+  if (isError || !shortURL || shortURL.status === 'failed') {
+    router.push('/500', { pathname: router.pathname });
+    return null;
   }
 
-  if (data.message === "Expired") {
-    router.push("/");
-    return <></>;
+  if (shortURL.msg === 'expired') {
+    router.replace('/');
+    return null;
   }
 
-  const { fullURL } = data;
-
+  const { fullURL } = shortURL.data;
   router.push(fullURL);
 }
 
 export default ShortURL;
 
-export const getServerSideProps: GetServerSideProps<
-  ServerPros,
-  ShortURLParams
-> = async (context) => {
+export const getServerSideProps: GetServerSideProps<Pick<URL, 'shortURL'>> = async (context) => {
   const { params } = context;
-  const { shortURL } = params as ShortURLParams;
+  const { shortURL } = params as { shortURL: string };
+  const redirect = { redirect: { permanent: false, destination: '/404' } };
 
-  return {
-    props: {
-      shortURL: shortURL,
-    },
-  };
+  if (shortURL.length !== 5) {
+    return redirect;
+  }
+
+  return { props: { shortURL } };
 };
