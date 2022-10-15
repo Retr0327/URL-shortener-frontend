@@ -11,8 +11,8 @@ import useStyles from './Table.styles';
 
 function URLTable() {
   const router = useRouter();
-  const { classes, cx } = useStyles();
   const [scrolled, setScrolled] = useState(false);
+  const { classes, cx } = useStyles(scrolled)();
   const { urls, isError, isLoading, mutate } = getAllShortURLs();
 
   if (isLoading) return <Loader />;
