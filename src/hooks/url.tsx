@@ -1,6 +1,6 @@
 import { string } from 'yup';
 import { useRef } from 'react';
-import { checkURL } from '@services';
+import checkURL from '@services/create/urlExistence';
 
 function cacheTest(asyncValidate: Function) {
   let _valid = false;
