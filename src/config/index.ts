@@ -6,6 +6,6 @@ if (!api) {
 
 const url = `${api}/url`;
 
-const API = { url, existence: `${url}/existence` } as const;
+const API = { root: api, url, existence: `${url}/existence` } as const;
 
 export default API;
