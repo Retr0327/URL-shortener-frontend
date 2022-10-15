@@ -9,7 +9,6 @@ const deleteShortURL = async (payload: PayloadType) => {
     await request({ method: 'DELETE', url: API.url, payload });
     return true;
   } catch (error) {
-    console.error('deleteShortURL: ', error);
     return false;
   }
 };

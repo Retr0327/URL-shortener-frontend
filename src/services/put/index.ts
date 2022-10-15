@@ -10,7 +10,6 @@ const increaseClick = async (payload: PayloadType): Promise<[ResponseType, any]>
     const result = await request({ method: 'PUT', url: API.url, payload });
     return [result, null];
   } catch (error) {
-    console.error('increaseClick: ', error);
     return [null, error];
   }
 };

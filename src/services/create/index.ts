@@ -8,7 +8,6 @@ const createShortURL = async (payload: PayloadType) => {
     const result = await request({ method: 'POST', url: API.url, payload });
     return [result, null];
   } catch (error) {
-    console.error('createShortURL: ', error);
     return [null, error];
   }
 };
