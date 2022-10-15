@@ -19,8 +19,9 @@ function ShortURL(props: Props) {
   }
 
   if (shortURL.msg === 'expired') {
-    router.replace('/');
-    return null;
+    // eslint-disable-next-line no-alert
+    alert('URL expired!');
+    return router.push('/');
   }
 
   const { fullURL } = shortURL.data;
